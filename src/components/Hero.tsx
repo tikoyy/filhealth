@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import {Grid, Typography, Card, CardContent } from "@mui/material";
+import { Grid, Typography, Card, CardContent } from "@mui/material";
 
 interface HeroProps {
   title?: string;
   subTitle?: string;
   header?: string;
   body?: string;
+  imgURL?: string;
 }
 
 export default function Hero(props: HeroProps) {
@@ -35,15 +36,29 @@ export default function Hero(props: HeroProps) {
           marginX: { md: 2 },
           paddingY: 5,
           marginY: 1,
-          paddingX: { md: 2 },
+          paddingX: { xs: 4, md: 4 },
           flexGrow: 1,
           height: cardHeight,
+          
         }}
       >
         <CardContent className="card-content">
+          {props.imgURL && (
+            <img
+              src={props.imgURL}
+              alt="Article Image"
+              
+              style={{ width: "300px", height: "220px", display: 'flex',
+              flexDirection: 'column', 
+              justifyContent: 'center', 
+              alignItems: 'center', }}
+            />
+          )}
           {props.header && <Typography variant="h4">{props.header}</Typography>}
-          {props.title && <Typography variant="h5">{props.title}</Typography>}
-          {props.subTitle && <Typography variant="h6">{props.subTitle}</Typography>}
+          {props.title && <Typography variant="h4">{props.title}</Typography>}
+          {props.subTitle && (
+            <Typography variant="h6">{props.subTitle}</Typography>
+          )}
           {props.body && <Typography variant="body1">{props.body}</Typography>}
         </CardContent>
       </Card>

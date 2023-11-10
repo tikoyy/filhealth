@@ -5,6 +5,10 @@ import App from './pages/App';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import AboutUs from './pages/AboutUs';
+import OurPartners from './pages/OurPartners';
+import Members from './pages/Members';
+import OnlineServices from './pages/OnlineServices';
+import Downloads from './pages/Downloads';
 
 
 const root = ReactDOM.createRoot(
@@ -23,15 +27,23 @@ const router = createBrowserRouter([
   },
   {
     path: "/about-us",
-    element: <AboutUs />,
+    element: <AboutUs />
   },
   {
     path: "/members",
-    element: <div> Members</div>,
+    element: <Members/> ,
   },
   {
     path: "/OurPartners",
-    element: <div> Our Partners</div>,
+    element: <OurPartners />
+  },
+  {
+    path: "/OnlineServices",
+    element: <OnlineServices/>
+  },
+  {
+    path: "/Downloads",
+    element: <Downloads/>
   },
 ]);
 
