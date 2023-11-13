@@ -1,6 +1,8 @@
 import { Db, MongoClient} from 'mongodb';
 
-const client = new MongoClient("mongodb+srv://robertmichaelaquino:kxc7K4X8QIHMSE1p@cluster1.bubj3ew.mongodb.net/");
+const client = new MongoClient(process.env.MONGODB_URI);
+
+
 
 let conn: MongoClient;
 const makeConnection = async () => {
