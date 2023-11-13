@@ -1,0 +1,63 @@
+
+# Philhealth-server
+
+This is a server side for philhealt dupe 
+
+
+
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+  - [Running the Application](#running-the-application)
+- [Usage](#usage)
+- [Dependencies](#dependencies)
+- [Contributing](#contributing)
+
+## Prerequisites
+
+To start, here are the following requirements your local machine should have. 
+
+- Node.js and npm installed on your machine
+- A notion account with an integration set up with access to the NOTION API
+- A simple understanding of REACT, NODE.JS AND Express
+
+## Getting Started
+
+Explain how to set up the project on a local machine. Include step-by-step instructions and commands where necessary.
+
+### Installation
+
+1. Clone the repository to your local machine:
+
+   ```bash
+   git clone git@github.com:tikoyy/filhealth.git
+2. Install dependecies
+   ```powershell
+   npm install 
+2. Install Mongo compass
+  Download this here https://www.mongodb.com/products/tools/compass
+### Configuration 
+
+1. Create _**'.env'**_ file in the _**'root folder'**_ directory and set the following variables
+   ```powershell
+    MONGODB_URL="your personal link"
+Replace _**'MONGODB_URL'**_  with your actual generated Mongo and compass link
+
+### Running the Application 
+
+1. For the backend server 
+    ```powershell
+        npm run dev
+2.  For the Frontend Server
+    ```powershell
+        npm run dev
+  Visit _**'http://localhost:3000'**_ in your browser to gain access of your application 
+
+
+
+
+
+
