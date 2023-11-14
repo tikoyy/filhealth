@@ -9,10 +9,56 @@ import {
   Button,
   Card,
   CardContent,
+  Paper,
+  Link,
 } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
+
+interface MainFeaturedPostProps {
+  post?: {
+    description: React.ReactNode;
+    image: string;
+    imageText: string;
+    linkText: string;
+    title: string;
+  };
+}
+
+const postData = {
+  description: (
+    <div>
+      Callback Channel: 0917-898-7442 (PHIC)
+      <br />
+      Text
+      <span style={{ fontStyle: "italic" }}>
+        PHICcallback [space] Mobile No. or Metro Manila landline [space] details of your concern
+      </span>
+      and we will call you during office hours, weekdays only.
+      <br />
+      (Callback request will expire after 72 hours.)
+      <br/>
+      <b> Call Center Hotline 84417442 (PHIC) </b>
+      <br/> 
+      (Self-help only; agent assistance temporarily not available)
+      <Stack direction={"row"}>
+        <FacebookIcon/>
+        <EmailIcon/>
+        <TwitterIcon/>
+      </Stack>
+      <br/>
+        <span style={{textDecoration: "underline"}}>
+          actioncenter@philhealth.gov.ph
+        </span>
+    </div>
+
+  ),
+  image: "https://www.philhealth.gov.ph/about_us/images/abt_bnnr.jpg",
+  imageText: "Image Text",
+  linkText: "Learn More",
+  title: "Contact Information",
+};
 
 const appStyle: React.CSSProperties = {
   backgroundImage: "url(https://www.philhealth.gov.ph/images/bg_green.jpg)",
@@ -58,7 +104,7 @@ const otheroverlayText: React.CSSProperties = {
 };
 
 const contentContainer: React.CSSProperties = {
-  marginTop: "55vh",
+  marginTop: "20px",
 };
 
 const italicizedText: React.CSSProperties = {
@@ -76,6 +122,7 @@ const linkStyles = {
   padding: 0,
   ":hover": {
     color: "#2C9B00",
+    textDecoration: 'underline',
   },
 };
 const bulletlinkStyles = {
@@ -88,67 +135,80 @@ const bulletlinkStyles = {
   },
 };
 
-function AboutUs() {
+function AboutUs({post = postData}: MainFeaturedPostProps) {
+  if(!post) {
+    return null;
+  }
+  //const { image, imageText, title, description, linkText } = post;
+
   return (
     <div className="App" style={appStyle}>
       <Grid>
         <Grid item xs={12}>
           <NavMenu />
         </Grid>
-        <Box style={bannerStyle}>
-          <img
-            src="https://www.philhealth.gov.ph/about_us/images/abt_bnnr.jpg"
-            alt="Banner pic"
-            style={bannerImageStyle}
-          />
-          <Box style={overlayContainer}>
-            <Stack
-              direction="column"
-              spacing={-1.5}
-              justifyContent={"center"}
-              textAlign={"center"}
-            >
-              <Typography variant="h5" style={overlayText}>
-                Contact Information
-              </Typography>
-              <Typography variant="h5" style={otheroverlayText}>
-                Callback Channel: 0917-898-7442 (PHIC)
-              </Typography>
-              <Typography variant="h5" style={otheroverlayText}>
-                Text
-                <i style={{ ...italicizedText }}>
-                  "PHICcallback [space] Mobile No. or Metro Manila landline
-                  [space] details of your concern"
-                </i>
-                and we will call you during office hours, weekdays only.
-                (Callback requests will expire after 72 hours.)
-              </Typography>
-              <Typography variant="h5" style={otheroverlayText}>
-                Call Center Hotline 84417442 (PHIC)
-              </Typography>
-              <Typography variant="h5" style={otheroverlayText}>
-                (Self-help only; agent assistance temporarily not available)
-              </Typography>
-              <Stack
-                direction={"row"}
-                spacing={0.5}
-                justifyContent={"center"}
-                alignItems={"center"}
-              >
-                <EmailIcon />
-                <FacebookIcon />
-                <TwitterIcon />
-              </Stack>
-              <Typography
-                variant="h5"
-                style={otheroverlayText}
-                sx={{ textDecoration: "underline" }}
-              >
-                actioncenter@philhealth.gov.ph
-              </Typography>
-            </Stack>
-          </Box>
-        </Box>
+        <Grid>
+          <Paper
+            sx={{
+              position: "relative",
+              backgroundColor: "grey.800",
+              color: "#fff",
+              mb: 4,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundImage: `url(${post.image})`,
+            }}
+          >
+            {/* Increase the priority of the hero background image */}
+            {
+              <img
+                style={{ 
+                  display: "none"}}
+                src={post.image}
+                alt={post.imageText}
+              />
+            }
+            <Box
+              sx={{
+                position: "absolute",
+                top: 0,
+                bottom: 0,
+                right: 0,
+                left: 0,
+                backgroundColor: "rgba(0,0,0,.3)", //color ng overlay
+              }}
+            />
+            <Grid container>
+              <Grid item md={6}>
+                <Box
+                  sx={{
+                    position: "relative",
+                    p: { xs: 3, md: 6 },
+                    pr: { md: 0 },
+                    textAlign: 'left',
+                  }}
+                >
+                  <Typography
+                    component="h1"
+                    variant="h3"
+                    color="inherit"
+                    gutterBottom
+                    style={{paddingTop: '40px'}}
+                  >
+                    {post.title}
+                  </Typography>
+                  <Typography variant="h5" color="inherit" paragraph >
+                    {post.description}
+                  </Typography>
+                  <Link variant="subtitle1" href="#">
+                    {post.linkText}
+                  </Link>
+                </Box>
+              </Grid>
+            </Grid>
+          </Paper>
+        </Grid>
         <Box
           style={contentContainer}
           alignContent={"center"}
@@ -822,7 +882,7 @@ function AboutUs() {
                       }}
                     >
                       PhilHealth Corporate Data Dictionary
-                      <p style={{ fontSize: "13px" }}>As of Octobert 5, 2022</p>
+                      <p style={{ fontSize: "13px" }}>As of October 5, 2022</p>
                     </a>
                   </Typography>
                   <Typography

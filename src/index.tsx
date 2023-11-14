@@ -1,49 +1,49 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './pages/App';
-import reportWebVitals from './reportWebVitals';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import AboutUs from './pages/AboutUs';
-import OurPartners from './pages/OurPartners';
-import Members from './pages/Members';
-import OnlineServices from './pages/OnlineServices';
-import Downloads from './pages/Downloads';
-
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./pages/App";
+import reportWebVitals from "./reportWebVitals";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import AboutUs from "./pages/AboutUs";
+import OurPartners from "./pages/OurPartners";
+import Members from "./pages/Members";
+import OnlineServices from "./pages/OnlineServices";
+import Downloads from "./pages/Downloads";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
-
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />
+    element: <App />,
   },
   {
     path: "/Home",
-    element: <App />
+    element: <App />,
   },
   {
     path: "/about-us",
-    element: <AboutUs />
+    element: (
+      <AboutUs />
+    ),
   },
   {
     path: "/members",
-    element: <Members/> ,
+    element: <Members />,
   },
   {
     path: "/OurPartners",
-    element: <OurPartners />
+    element: <OurPartners />,
   },
   {
     path: "/OnlineServices",
-    element: <OnlineServices/>
+    element: <OnlineServices />,
   },
   {
     path: "/Downloads",
-    element: <Downloads/>
+    element: <Downloads />,
   },
 ]);
 
