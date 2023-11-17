@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import NavMenu from "../components/NavMenu";
 import Footer from "../components/Footer";
 import { Grid, Box, CardContent, Typography, Card } from "@mui/material";
 
-const appStyle = {
+const appStyle: React.CSSProperties = {
   backgroundImage: "url(https://www.philhealth.gov.ph/images/bg_green.jpg)",
 };
-const bannerStyle = {
+const bannerStyle: React.CSSProperties = {
   width: "100%",
   height: "auto",
   paddingTop: "70px",
@@ -15,7 +15,7 @@ const bannerStyle = {
 function Members() {
   return (
     <div className="App" style={appStyle}>
-      <Grid>
+      <Grid container>
         <Grid item xs={12}>
           <NavMenu />
         </Grid>
@@ -38,7 +38,6 @@ function Members() {
             flexGrow: 1,
             marginTop: "10vh",
             marginBottom: "10vh",
-
           }}
         >
           <CardContent sx={{ justifyContent: "left" }}>
@@ -121,10 +120,10 @@ function Members() {
               <li>Persons with disability</li>
               <li>Sangguniang Kabataan officials</li>
               <li>
-                Previously identified at point-of-service / sponsored by LGUs
+                Previously identified at the point-of-service / sponsored by LGUs
               </li>
               <li>
-                Filipinos aged 21 years old and above without capacity to pay
+                Filipinos aged 21 years old and above without the capacity to pay
                 premiums
               </li>
             </ul>

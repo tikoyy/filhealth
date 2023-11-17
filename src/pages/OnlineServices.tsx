@@ -4,17 +4,17 @@ import Footer from "../components/Footer";
 import { Grid, Box, CardContent, Typography, Card, Stack } from "@mui/material";
 import { CardActionArea } from "@mui/material";
 
-const appStyle = {
+const appStyle: React.CSSProperties = {
   backgroundImage: "url(https://www.philhealth.gov.ph/images/bg_green.jpg)",
 };
-const bannerStyle = {
+const bannerStyle: React.CSSProperties = {
   width: "100%",
   height: "auto",
   paddingTop: "70px",
   paddingBottom: "10px",
 };
 
-const linkStyle = {
+const linkStyle: React.CSSProperties = {
   textDecoration: "none",
   color: "inherit",
 };
@@ -78,7 +78,6 @@ function OnlineServices() {
             alt="Banner"
           />
         </Box>
-        {/* Start here */}
         <Grid item xs={12} style={{ textAlign: "center", marginTop: "-5px" }}>
           <Typography
             variant="h3"
@@ -93,7 +92,6 @@ function OnlineServices() {
             Membership
           </Typography>
         </Grid>
-        {/* Cards start here */}
         <Grid
           container
           spacing={1}
@@ -105,7 +103,6 @@ function OnlineServices() {
             spacing={1}
             sx={{ mb: 3 }}
           >
-            {/* Card 1 */}
             <PartnerCard
               title="Member Portal"
               content={
@@ -116,7 +113,6 @@ function OnlineServices() {
               }
               link="https://memberinquiry.philhealth.gov.ph/member/"
             />
-            {/* Card 2 */}
             <PartnerCard
               title="Electronic Group Enrollment System"
               content={
@@ -128,11 +124,7 @@ function OnlineServices() {
               link="https://egroup03.philhealth.gov.ph/"
             />
           </Stack>
-          {/* Additional Stacks for more cards can be added here */}
         </Grid>
-        {/* eND HERE */}
-
-        {/* Grid with title start here */}
         <Grid item xs={12} style={{ textAlign: "center", marginTop: "-5px" }}>
           <Typography
             variant="h3"
@@ -147,7 +139,6 @@ function OnlineServices() {
             Benefits
           </Typography>
         </Grid>
-        {/* Cards start here */}
         <Grid
           container
           spacing={0}
@@ -159,7 +150,6 @@ function OnlineServices() {
             spacing={1}
             sx={{ mb: 3 }}
           >
-            {/* Card 3 */}
             <PartnerCard
               title="Case Rates Search"
               content={
@@ -170,7 +160,6 @@ function OnlineServices() {
               }
               link="https://www.philhealth.gov.ph/services/acr/"
             />
-            {/* Card 4 */}
             <PartnerCard
               title="Claims Eligibility Checking"
               content={
@@ -183,8 +172,6 @@ function OnlineServices() {
             />
           </Stack>
         </Grid>
-        {/* Additional Stacks for more cards can be added here */}
-        {/* Grid with title start here */}
         <Grid item xs={12} style={{ textAlign: "center", marginTop: "-5px" }}>
           <Typography
             variant="h3"
@@ -199,29 +186,25 @@ function OnlineServices() {
             Contribution
           </Typography>
         </Grid>
-        {/* Cards start here */}
         <Grid
           container
           spacing={0}
-          justifyContent="center" // Center the cards horizontally
+          justifyContent="center"
           alignItems="center"
           alignContent={"center"}
         >
-          {/* Card 5 */}
           <PartnerCard
             title="Electronic Premium Remittance System"
             content={
               <>
                 <a href="https://eprs01.philhealth.gov.ph/"> LogIn </a>|
                 <a href="https://epoaf.philhealth.gov.ph/employer/"> ePOAF </a>
-                <br /> Enables employers to remit their premium contributions
-                online
+                <br /> Enables employers to remit their premium contributions online
               </>
             }
             link="https://eprs01.philhealth.gov.ph/"
           />
         </Grid>
-        {/* Collection */}
         <Grid item xs={12} style={{ textAlign: "center", marginTop: "-5px" }}>
           <Typography
             variant="h3"
@@ -236,27 +219,23 @@ function OnlineServices() {
             Collection
           </Typography>
         </Grid>
-        {/* Cards start here */}
         <Grid
           container
           spacing={0}
-          justifyContent="center" // Center the cards horizontally
-          alignItems="center" // Center the cards vertically
+          justifyContent="center"
+          alignItems="center"
         >
-          {/* Card 6 */}
           <PartnerCard
             title="Electronic Collection Reporting System"
             content={
               <>
                 <a href="https://ecrs.philhealth.gov.ph/"> LogIn </a>
-                <br /> Enables PhilHealth Accredited Collecting Agents to submit
-                daily RF2 reports online
+                <br /> Enables PhilHealth Accredited Collecting Agents to submit daily RF2 reports online
               </>
             }
             link="https://ecrs.philhealth.gov.ph/"
           />
         </Grid>
-        {/* Accreditation */}
         <Grid item xs={12} style={{ textAlign: "center", marginTop: "-5px" }}>
           <Typography
             variant="h3"
@@ -271,26 +250,20 @@ function OnlineServices() {
             Accreditation
           </Typography>
         </Grid>
-        {/* Cards start here */}
         <Grid
           container
           spacing={0}
-          justifyContent="center" // Center the cards horizontally
-          alignItems="center" // Center the cards vertically
+          justifyContent="center"
+          alignItems="center"
           paddingBottom={"10vh"}
-          
         >
-          {/* Card 7 */}
           <PartnerCard
             title="Health Care Institutions"
             content={
               <>
                 <a href="https://ihcp.philhealth.gov.ph/"> LogIn </a>|
-                <a href="https://www.philhealth.gov.ph/services/hci/">
-                  How to Register
-                </a>
-                <br /> Shows the complete list of HCIs including accreditation
-                status
+                <a href="https://www.philhealth.gov.ph/services/hci/"> How to Register </a>
+                <br /> Shows the complete list of HCIs including accreditation status
               </>
             }
             link="https://ihcp.philhealth.gov.ph/"

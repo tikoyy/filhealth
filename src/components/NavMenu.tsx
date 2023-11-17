@@ -15,34 +15,37 @@ import {
 import { Menu as MenuIcon } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 
-// Styles
-const appBarStyle = {
+interface MenuItem {
+  label: string;
+  path: string;
+}
+
+const appBarStyle: React.CSSProperties = {
   backgroundColor: "#329900",
   height: "65px",
 };
 
-const containerStyle = {
+const containerStyle: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
 };
 
-const buttonStyle = {
+const buttonStyle: React.CSSProperties = {
   marginLeft: "20px",
 };
 
-const imageStyle = {
+const imageStyle: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
 };
 
-const logoStyle = {
+const logoStyle: React.CSSProperties = {
   height: `calc(${appBarStyle.height} - 5px)`,
   width: "auto",
 };
 
-// Navigation items with labels and paths
-const menuItems = [
+const menuItems: MenuItem[] = [
   { label: "Home", path: "/Home" },
   { label: "About Us", path: "/about-us" },
   { label: "Members", path: "/members" },
@@ -51,36 +54,31 @@ const menuItems = [
   { label: "Downloads", path: "/downloads" },
 ];
 
-function Navbar() {
+const Navbar: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [menuAnchor, setMenuAnchor] = useState<null | HTMLElement>(null);
+  const [menuAnchor, setMenuAnchor] = useState<HTMLElement | null>(null);
   const navigate = useNavigate();
 
-  // Function to navigate to a specific page and close the drawer or menu
   const gotoPage = (page: string) => {
     navigate(page);
     setDrawerOpen(false);
     setMenuAnchor(null);
   };
 
-  // Event handler for clicking the hamburger icon
   const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setMenuAnchor(event.currentTarget);
   };
 
-  // Event handler for closing the menu
   const handleMenuClose = () => {
     setMenuAnchor(null);
   };
 
   return (
     <>
-      {/* AppBar with the responsive design */}
       <AppBar position="fixed" style={appBarStyle}>
         <Toolbar variant="dense">
           <Container maxWidth="xl" style={containerStyle}>
             <div style={imageStyle}>
-              {/* Logo */}
               {["ph_logo0.png", "bagong_pilipinas_logo3.png"].map((logo, index) => (
                 <img
                   key={index}
@@ -93,7 +91,6 @@ function Navbar() {
               ))}
             </div>
             <div>
-              {/* Navigation buttons for large screens */}
               {menuItems.map((item, index) => (
                 <Button
                   key={index}
@@ -109,7 +106,6 @@ function Navbar() {
                   {item.label}
                 </Button>
               ))}
-              {/* Conditional rendering of the hamburger icon */}
               <IconButton
                 color="inherit"
                 aria-label="menu"
@@ -118,7 +114,6 @@ function Navbar() {
               >
                 <MenuIcon />
               </IconButton>
-              {/* Dropdown menu for small screens */}
               <Menu
                 anchorEl={menuAnchor}
                 open={Boolean(menuAnchor)}
@@ -134,7 +129,6 @@ function Navbar() {
           </Container>
         </Toolbar>
       </AppBar>
-      {/* Drawer (responsive menu) */}
       <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <List>
           {menuItems.map((item, index) => (
@@ -146,6 +140,6 @@ function Navbar() {
       </Drawer>
     </>
   );
-}
+};
 
 export default Navbar;
